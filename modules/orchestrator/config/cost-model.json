@@ -1,0 +1,9 @@
+{
+  "_note": "E_attempts 初始取基线；跑满20条后用 generation_log 实测覆盖。",
+  "baseline_attempts": 3.0,
+  "unit_cost_usd": {"video_15s": 1.20, "image": 0.08},
+  "risk_multipliers": {
+    "hand_closeup": 1.4, "three_plus_named": 1.3, "fast_action": 1.35,
+    "multi_shot_dialogue": 1.25, "extreme_wide_named": 1.2, "text_in_frame": 1.5
+  }
+}

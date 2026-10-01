@@ -1,0 +1,11 @@
+{
+  "speech_rate_cps": {
+    "normal": 4.5, "argument": 6.5, "monologue": 2.5,
+    "period": 3.75, "vertical_short": 5.5, "voiceover": 4.0, "comedy": 6.5
+  },
+  "non_dialogue_sec": {
+    "action_line": 1.8, "silence": 2.5, "beat_pause": 1.0,
+    "comedy_hold": 1.2, "entrance_exit": 3.0, "transition": 1.5
+  },
+  "page_per_minute_zh": [1.2, 1.4]
+}

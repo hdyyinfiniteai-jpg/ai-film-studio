@@ -1,0 +1,24 @@
+{
+  "G1": {"name":"结构门","after_stage":"S1","checks":[
+    "controlling_idea_present","every_scene_has_value","value_in_taxonomy",
+    "runtime_within_tolerance","polarity_not_flat"]},
+  "G2": {"name":"可拍门","after_stage":"S1","checks":["shootability_all_pass"]},
+  "G3": {"name":"资产门","after_stage":"S3","checks":[
+    "every_cast_has_core_lock","every_cast_has_voice","every_location_has_views",
+    "every_prop_has_spec","palette_locked"]},
+  "G4": {"name":"走位门","after_stage":"S4","checks":["blocking_for_multichar","emotion_track_present"]},
+  "G5": {"name":"出货门","after_stage":"S5","checks":[
+    "handles_declared","shot_count_declared","no_emotion_adjectives",
+    "warning_density_ok","char_limit_ok","handle_no_drift",
+    "lens_doctrine_ok","light_doctrine_ok","eye_life_ok","conditional_turn_ok"]},
+  "thresholds": {
+    "runtime_tolerance": 0.10,
+    "char_limit_zh": 2500,
+    "warning_single_max": 15,
+    "warning_triple_max": 3,
+    "handle_similarity_min": 0.95,
+    "flat_polarity_max_ratio": 0.15,
+    "flat_polarity_run": 3,
+    "shot_seconds_base": 15
+  }
+}

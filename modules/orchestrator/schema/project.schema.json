@@ -1,0 +1,205 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AI Film Pipeline · Project State",
+  "description": "整条产线的唯一真相源。每个阶段只读写这个对象，任何一步都不需要重读剧本。",
+  "type": "object",
+  "required": ["project", "aesthetic", "cast", "locations", "scenes"],
+
+  "properties": {
+    "project": {
+      "type": "object",
+      "required": ["id", "title", "type", "aspect", "aesthetic_id"],
+      "properties": {
+        "id":                 { "type": "string" },
+        "title":              { "type": "string" },
+        "type":               { "enum": ["feature", "series", "short", "interactive", "vertical"] },
+        "target_runtime_sec": { "type": "integer" },
+        "aspect":             { "enum": ["21:9", "16:9", "9:16", "4:3", "1:1"] },
+        "aesthetic_id":       { "type": "string" }
+      }
+    },
+
+    "aesthetic": {
+      "description": "从 06_美学模板_四套.json 中选取并展开，不手写",
+      "type": "object",
+      "required": ["id", "palette_60_30_10", "light_doctrine", "lens_doctrine", "forbid_block"]
+    },
+
+    "cast": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "core_lock", "handle_desc_zh"],
+        "properties": {
+          "id":                { "type": "string" },
+          "persona_vault_ref": { "type": "string", "description": "接 Persona Vault；存在则不走 LIRA 现编" },
+          "core_lock":         { "type": "string", "description": "50–70词英文，每条提示词都带" },
+          "master_profile":    { "type": "string", "description": "150–220词 ACTING 主档案，仅首次出场与情绪转折带" },
+          "voice_prompt":      { "type": "string", "description": "语音提示词，一字不改" },
+          "voice_identity": {
+            "type": "object",
+            "description": "SCREENWRITER 的语言身份，与 voice_prompt 同源",
+            "properties": {
+              "line_length":       { "enum": ["短", "中", "长"] },
+              "register":          { "type": "string" },
+              "silence_pattern":   { "type": "string" },
+              "signature_phrases": { "type": "array", "items": { "type": "string" } }
+            }
+          },
+          "handle_desc_zh": { "type": "string", "description": "中文句柄描述，头到脚全套" },
+          "states":         { "type": "array", "items": { "type": "string" } },
+          "asset_specs":    { "type": "array", "items": { "$ref": "#/definitions/assetSpec" } }
+        }
+      }
+    },
+
+    "locations": { "type": "array", "items": { "$ref": "#/definitions/location" } },
+    "props":     { "type": "array", "items": { "$ref": "#/definitions/prop" } },
+
+    "scenes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["no", "slug", "value_in", "value_out", "focal_character", "timing_sec"],
+        "properties": {
+          "no":              { "type": "integer" },
+          "slug":            { "type": "string" },
+          "act":             { "type": "integer" },
+          "value_in":        { "type": "string" },
+          "value_out":       { "type": "string" },
+          "value_polarity":  { "enum": ["+ → −", "− → +", "平衡"] },
+          "hamartia_link":   { "type": "string" },
+          "turn_type":       { "enum": ["setup", "peripeteia", "anagnorisis", "crisis", "climax", "breather"] },
+          "focal_character": { "type": "string" },
+          "cast_present":    { "type": "array", "items": { "type": "string" } },
+          "props_present":   { "type": "array", "items": { "type": "string" } },
+          "location_id":     { "type": "string" },
+          "timing_sec":      { "type": "number" },
+          "wardrobe_state":  { "type": "object", "additionalProperties": { "type": "string" } },
+          "blocking_svg":    { "type": "string" },
+          "emotion_track": {
+            "description": "由 value_polarity 查映射表自动生成，人工可覆写",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["t", "focal", "state", "camera"],
+              "properties": {
+                "t":      { "type": "number" },
+                "focal":  { "type": "string" },
+                "state":  { "type": "string" },
+                "camera": { "type": "string" }
+              }
+            }
+          },
+          "mapping_override": {
+            "type": "object",
+            "properties": { "from": { "type": "string" }, "to": { "type": "string" }, "reason": { "type": "string" } }
+          },
+          "ai_shootability": {
+            "type": "object",
+            "required": ["passed"],
+            "properties": {
+              "passed": { "type": "boolean" },
+              "flags":  { "type": "array", "items": { "type": "string" } }
+            }
+          }
+        }
+      }
+    },
+
+    "prompts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "scene", "duration_sec", "shot_count", "text_zh"],
+        "properties": {
+          "id":           { "type": "string" },
+          "scene":        { "type": "integer" },
+          "tag":          { "type": "string" },
+          "duration_sec": { "type": "number" },
+          "shot_count":   { "type": "integer" },
+          "handles":      { "type": "object", "additionalProperties": { "type": "string" } },
+          "text_zh":      { "type": "string" },
+          "char_count":   { "type": "integer", "description": "超过 2500 触发拆分" },
+          "warning_density": {
+            "type": "object",
+            "properties": {
+              "single": { "type": "integer", "description": "单⚠️，建议 ≤15" },
+              "triple": { "type": "integer", "description": "三重⚠️⚠️⚠️，建议 ≤3" }
+            }
+          },
+          "generation_log": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["attempt", "verdict"],
+              "properties": {
+                "attempt": { "type": "integer" },
+                "model":   { "type": "string" },
+                "verdict": { "enum": ["pass", "fail"] },
+                "failure_mode": {
+                  "enum": ["handle_contamination","identity_drift","pose_contamination","light_spill",
+                           "wide_distortion","floating_prop","god_rays","empty_bg","hand_chaos",
+                           "scale_mismatch","camera_wild","spurious_cut","focus_drift","perf_flat",
+                           "prompt_ignored","other"]
+                },
+                "note": { "type": "string" },
+                "file": { "type": "string" }
+              }
+            }
+          },
+          "cost": {
+            "type": "object",
+            "properties": {
+              "attempts": { "type": "integer" },
+              "credits":  { "type": "number" },
+              "usd":      { "type": "number" }
+            }
+          }
+        }
+      }
+    }
+  },
+
+  "definitions": {
+    "assetSpec": {
+      "type": "object",
+      "required": ["model", "aspect", "prompt"],
+      "properties": {
+        "model":   { "enum": ["soul-2.0", "soul-cinema", "nano-banana-pro", "seedream-4.5", "gpt-image-2", "midjourney-v7"] },
+        "aspect":  { "type": "string" },
+        "views":   { "type": "integer" },
+        "variant": { "type": "string" },
+        "prompt":  { "type": "string", "description": "LIRA 格式，80–150 词" },
+        "output":  { "type": "string" }
+      }
+    },
+    "location": {
+      "type": "object",
+      "required": ["id", "handle_desc_zh"],
+      "properties": {
+        "id":             { "type": "string" },
+        "name":           { "type": "string" },
+        "type":           { "type": "string" },
+        "handle_desc_zh": { "type": "string" },
+        "views":          { "type": "object", "additionalProperties": { "type": "string" } },
+        "light_profile":  { "type": "object" },
+        "palette":        { "type": "array", "items": { "type": "string" } },
+        "asset_specs":    { "type": "array", "items": { "$ref": "#/definitions/assetSpec" } },
+        "used_in":        { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "prop": {
+      "type": "object",
+      "required": ["id"],
+      "properties": {
+        "id":            { "type": "string" },
+        "name":          { "type": "string" },
+        "setup_scene":   { "type": "integer" },
+        "payoff_scene":  { "type": "integer" },
+        "handle_desc_zh":{ "type": "string" },
+        "asset_specs":   { "type": "array", "items": { "$ref": "#/definitions/assetSpec" } }
+      }
+    }
+  }
+}

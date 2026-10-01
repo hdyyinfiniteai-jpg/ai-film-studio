@@ -1,0 +1,17 @@
+{
+  "_note": "库健康三指标。库不维护会腐烂——这是方向C唯一的真实风险。",
+  "health": {
+    "completeness_min": 0.80,
+    "collision_max": 0.88,
+    "staleness_days": 400,
+    "reuse_rate_target": 0.55
+  },
+  "compounding": {
+    "_note": "复利模型：第N部片相对第1部的成本比。实测数据会覆盖这些估计值。",
+    "estimate_curve": {"1": 1.00, "2": 0.65, "3": 0.45, "5": 0.35, "10": 0.30},
+    "unit_cost_usd": {"persona_new": 24.0, "persona_variant": 3.2,
+                      "location_new": 9.6, "location_view": 2.4,
+                      "prop_new": 1.6, "aesthetic_new": 0.0}
+  },
+  "north_star": "复用率 = 命中库的资产数 / 本片需要的资产总数。目标 ≥55%。"
+}

@@ -1,0 +1,836 @@
+{
+  "project": {
+    "id": "xingming3",
+    "title": "《刑名·终》",
+    "type": "short",
+    "target_runtime_sec": 46,
+    "aspect": "21:9",
+    "aesthetic_id": "cold-court-noir",
+    "controlling_idea": "他终于放下了那把刀，却发现自己已经不知道该怎么站着。"
+  },
+  "aesthetic": {
+    "id": "cold-court-noir",
+    "name": "冷调古装 · 刑狱权谋",
+    "适用": "古装正剧、权谋、探案",
+    "light_doctrine": {
+      "allowed_sources": [
+        "门缝炭火",
+        "风灯",
+        "宫灯",
+        "烛台",
+        "月光",
+        "雪反光"
+      ],
+      "forbidden": [
+        "正面补光",
+        "反光板",
+        "柔光箱",
+        "LED灯带",
+        "霓虹",
+        "任何现代光源"
+      ],
+      "camera_side": "shadow_side",
+      "atmosphere": "夜间轻微 haze，禁 god rays"
+    },
+    "palette_60_30_10": [
+      "冷板岩灰",
+      "深黑阴影",
+      "炭火橙"
+    ],
+    "lens_doctrine": {
+      "wide": 35,
+      "dialogue": 50,
+      "emotion": 85,
+      "extreme": 100,
+      "macro": 45
+    },
+    "grade_refs": [
+      "Kodak Vision3 500T",
+      "暗部压至接近纯黑，高光不过曝"
+    ],
+    "signature": "人物大面积在暗部，只有轮廓光与眼神光可辨",
+    "forbid_block": [
+      "3D渲染",
+      "游戏引擎画面",
+      "游戏CG过场",
+      "CGI质感",
+      "漂浮道具",
+      "重力失效",
+      "身份漂移",
+      "光学畸变",
+      "字幕",
+      "水印",
+      "文字",
+      "音乐",
+      "配乐",
+      "god rays",
+      "丁达尔光柱",
+      "镜头光晕",
+      "塑料感皮肤",
+      "过度磨皮",
+      "AI感",
+      "正面补光",
+      "反光板",
+      "柔光箱",
+      "LED灯带",
+      "霓虹",
+      "任何现代光源"
+    ]
+  },
+  "cast": [
+    {
+      "id": "shen-yan",
+      "name": "shen-yan",
+      "persona_vault_ref": "PV-0142",
+      "core_lock": "Male, late forties, gaunt, unnaturally straight back, oblique old scar across left brow, close-cropped grey-black hair, deep-set eyes.",
+      "voice_prompt": "A man in his late forties, low and dry, speaks in short clipped phrases with long gaps.",
+      "voice_identity": {},
+      "handle_desc_zh": "四十余岁男性，瘦高，背极直，左眉斜贯一道旧疤，灰黑短发，深陷的眼窝，深色夜巡外袍",
+      "states": [
+        "常服",
+        "夜巡外袍",
+        "沾血"
+      ],
+      "asset_specs": [
+        {
+          "model": "soul-cinema",
+          "aspect": "21:9",
+          "views": 1,
+          "prompt": "[LIRA 80–150词待填] 四十余岁男性，瘦高，背极直，左眉斜贯一道旧疤，灰黑短发，深陷的眼窝，深色夜巡外袍"
+        },
+        {
+          "model": "soul-cinema",
+          "aspect": "21:9",
+          "views": 1,
+          "prompt": "[LIRA 80–150词待填] 四十余岁男性，瘦高，背极直，左眉斜贯一道旧疤，灰黑短发，深陷的眼窝，深色夜巡外袍",
+          "variant": "夜巡外袍"
+        },
+        {
+          "model": "soul-cinema",
+          "aspect": "21:9",
+          "views": 1,
+          "prompt": "[LIRA 80–150词待填] 四十余岁男性，瘦高，背极直，左眉斜贯一道旧疤，灰黑短发，深陷的眼窝，深色夜巡外袍",
+          "variant": "沾血"
+        }
+      ]
+    },
+    {
+      "id": "wei-shu",
+      "name": "魏姝",
+      "persona_vault_ref": "PV-0143",
+      "core_lock": "Female, early thirties, narrow shoulders, pale, hair pinned flat, steady unblinking gaze.",
+      "voice_prompt": "A woman in her early thirties, even and unhurried, never raises pitch.",
+      "voice_identity": {},
+      "handle_desc_zh": "三十出头女性，肩窄，面色苍白，发髻紧贴头皮，深青素袍，目光不闪不避",
+      "states": [
+        "素袍",
+        "夜行衣"
+      ],
+      "asset_specs": [
+        {
+          "model": "soul-cinema",
+          "aspect": "21:9",
+          "views": 1,
+          "prompt": "[LIRA 80–150词待填] 三十出头女性，肩窄，面色苍白，发髻紧贴头皮，深青素袍，目光不闪不避"
+        },
+        {
+          "model": "soul-cinema",
+          "aspect": "21:9",
+          "views": 1,
+          "prompt": "[LIRA 80–150词待填] 三十出头女性，肩窄，面色苍白，发髻紧贴头皮，深青素袍，目光不闪不避",
+          "variant": "夜行衣"
+        }
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "id": "xingfang-wailang",
+      "name": "刑房外廊",
+      "vault_ref": "LV-0001",
+      "type": "INT/夜",
+      "handle_desc_zh": "青砖地，四根木廊柱，右侧一扇厚木门，门缝底部漏出炭火橙光，廊下悬一盏风灯",
+      "views": {
+        "main": "",
+        "reverse": ""
+      },
+      "light_profile": {},
+      "palette": [],
+      "asset_specs": [
+        {
+          "model": "soul-cinema",
+          "aspect": "21:9",
+          "views": 2,
+          "prompt": "[LIRA 80–150词待填] 青砖地，四根木廊柱，右侧一扇厚木门，门缝底部漏出炭火橙光，廊下悬一盏风灯"
+        }
+      ]
+    }
+  ],
+  "props": [
+    {
+      "id": "duan-dao",
+      "name": "断刀",
+      "vault_ref": "PP-0002",
+      "handle_desc_zh": "半截刀身，断口锈蚀，缠布刀柄磨得发亮，无可辨识文字",
+      "asset_specs": [
+        {
+          "model": "nano-banana-pro",
+          "aspect": "21:9",
+          "views": 1,
+          "prompt": "[LIRA 80–150词待填] 半截刀身，断口锈蚀，缠布刀柄磨得发亮，无可辨识文字"
+        }
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "no": 1,
+      "slug": "INT. 旧宅 — 夜",
+      "act": 1,
+      "value_in": "沉默",
+      "value_out": "说出",
+      "focal_character": "wei-shu",
+      "cast_present": [
+        "shen-yan",
+        "wei-shu"
+      ],
+      "props_present": [
+        "duan-dao"
+      ],
+      "location_id": "xingfang-wailang",
+      "wardrobe_state": {
+        "shen-yan": "常服",
+        "wei-shu": "素袍"
+      },
+      "blocking_svg": "assets/b1.svg",
+      "insert_shots": [
+        "刀柄缠布特写"
+      ],
+      "beats": [
+        {
+          "type": "action",
+          "text": "魏姝把断刀放在案上。",
+          "lines": 1
+        },
+        {
+          "type": "silence"
+        },
+        {
+          "type": "dialogue",
+          "text": "这是他的。",
+          "mode": "period"
+        },
+        {
+          "type": "beat_pause"
+        },
+        {
+          "type": "dialogue",
+          "text": "我知道。",
+          "mode": "period"
+        },
+        {
+          "type": "action",
+          "text": "沈砚没有伸手去拿。",
+          "lines": 1
+        },
+        {
+          "type": "silence"
+        },
+        {
+          "type": "dialogue",
+          "text": "你若早说一句，他不至于死在城门底下。",
+          "mode": "period"
+        },
+        {
+          "type": "beat_pause"
+        },
+        {
+          "type": "dialogue",
+          "text": "我说了。他没听。",
+          "mode": "period"
+        }
+      ],
+      "timing_sec": 18.3,
+      "ai_shootability": {
+        "passed": true,
+        "flags": []
+      },
+      "emotion_track": [
+        {
+          "t": 0.0,
+          "focal": "wei-shu",
+          "state": "压抑",
+          "camera": "静止",
+          "shot": "CU",
+          "beat": 1
+        },
+        {
+          "t": 6.1,
+          "focal": "wei-shu",
+          "state": "释放",
+          "camera": "说出的那一句上开始极缓横移",
+          "shot": "CU",
+          "beat": 2
+        },
+        {
+          "t": 12.2,
+          "focal": "wei-shu",
+          "state": "释放",
+          "camera": "横移至露出听者",
+          "shot": "MS",
+          "beat": 3
+        }
+      ],
+      "value_polarity": "− → +",
+      "planned_prompt_count": 4,
+      "perf_direction": {
+        "PERF_VARIANT_2": "延迟——先无反应，隔一拍才动"
+      }
+    },
+    {
+      "no": 2,
+      "slug": "INT. 刑房外廊 — 夜",
+      "act": 2,
+      "value_in": "控制",
+      "value_out": "无助",
+      "focal_character": "shen-yan",
+      "cast_present": [
+        "shen-yan",
+        "wei-shu"
+      ],
+      "props_present": [],
+      "location_id": "xingfang-wailang",
+      "wardrobe_state": {
+        "shen-yan": "常服",
+        "wei-shu": "素袍"
+      },
+      "blocking_svg": "assets/b2.svg",
+      "beats": [
+        {
+          "type": "action",
+          "text": "沈砚站在廊下，手按在柱上。",
+          "lines": 1
+        },
+        {
+          "type": "dialogue",
+          "text": "我这辈子只信过一件事。",
+          "mode": "period"
+        },
+        {
+          "type": "silence"
+        },
+        {
+          "type": "dialogue",
+          "text": "就是那件事把你变成现在这样。",
+          "mode": "period"
+        },
+        {
+          "type": "action",
+          "text": "他的手从柱上滑下来。",
+          "lines": 1
+        },
+        {
+          "type": "silence"
+        }
+      ],
+      "timing_sec": 14.7,
+      "ai_shootability": {
+        "passed": true,
+        "flags": []
+      },
+      "emotion_track": [
+        {
+          "t": 0.0,
+          "focal": "shen-yan",
+          "state": "平稳",
+          "camera": "平滑手持，呼吸极微",
+          "shot": "MS",
+          "beat": 1
+        },
+        {
+          "t": 4.9,
+          "focal": "shen-yan",
+          "state": "失控",
+          "camera": "不安抖动手持，不规则横向漂移",
+          "shot": "CU",
+          "beat": 2
+        },
+        {
+          "t": 9.8,
+          "focal": "shen-yan",
+          "state": "失控",
+          "camera": "漂移幅度加倍并加入垂直抖动",
+          "shot": "ECU",
+          "beat": 3
+        }
+      ],
+      "value_polarity": "+ → −",
+      "planned_prompt_count": 2,
+      "perf_direction": {
+        "PERF_VARIANT_1": "向内——收缩、屏息、静止",
+        "PERF_VARIANT_2": "延迟——先无反应，隔一拍才动"
+      },
+      "mask_crack_beat": 3
+    },
+    {
+      "no": 3,
+      "slug": "EXT. 河岸 — 晨",
+      "act": 3,
+      "value_in": "囚禁",
+      "value_out": "自由",
+      "focal_character": "shen-yan",
+      "cast_present": [
+        "shen-yan"
+      ],
+      "props_present": [
+        "duan-dao"
+      ],
+      "location_id": "xingfang-wailang",
+      "wardrobe_state": {
+        "shen-yan": "常服"
+      },
+      "blocking_svg": "",
+      "continuous_tail": true,
+      "beats": [
+        {
+          "type": "action",
+          "text": "沈砚把断刀丢进河里。",
+          "lines": 1
+        },
+        {
+          "type": "silence"
+        },
+        {
+          "type": "action",
+          "text": "他站着，没有走。",
+          "lines": 2
+        },
+        {
+          "type": "silence"
+        },
+        {
+          "type": "action",
+          "text": "天光落在水面上。",
+          "lines": 1
+        }
+      ],
+      "timing_sec": 12.2,
+      "ai_shootability": {
+        "passed": true,
+        "flags": []
+      },
+      "emotion_track": [
+        {
+          "t": 0.0,
+          "focal": "shen-yan",
+          "state": "收缩",
+          "camera": "长焦静止",
+          "shot": "CU",
+          "beat": 1
+        },
+        {
+          "t": 4.1,
+          "focal": "shen-yan",
+          "state": "舒展",
+          "camera": "换中焦",
+          "shot": "MS",
+          "beat": 2
+        },
+        {
+          "t": 8.1,
+          "focal": "shen-yan",
+          "state": "舒展",
+          "camera": "换广角，露出此前未见的纵深",
+          "shot": "WS",
+          "beat": 3
+        }
+      ],
+      "value_polarity": "− → +",
+      "planned_prompt_count": 1,
+      "mapping_override": {
+        "reason": "他终于自由了，但摄影机不动——自由不是获得，是终于不必再动"
+      },
+      "perf_direction": {
+        "PERF_VARIANT_2": "延迟——先无反应，隔一拍才动"
+      }
+    }
+  ],
+  "prompts": [
+    {
+      "id": "sc1-p1",
+      "scene": 1,
+      "tag": "[CU · 沉默→说出 · 1/4]",
+      "duration_sec": 4.6,
+      "shot_count": 1,
+      "handles": {
+        "@image1": "shen-yan",
+        "@image2": "wei-shu",
+        "@image3": "xingfang-wailang",
+        "@image4": "duan-dao"
+      },
+      "text_zh": "【镜头】本条包含 1 个镜头，切换点严格发生在下列编号节拍处；除此之外不得有任何剪辑。\n【出场】@image1=四十余岁男性，瘦高，背极直，左眉斜贯一道旧疤，灰黑短发，深陷的眼窝，深色夜巡外袍；@image2=三十出头女性，肩窄，面色苍白，发髻紧贴头皮，深青素袍，目光不闪不避；@image3=青砖地，四根木廊柱，右侧一扇厚木门，门缝底部漏出炭火橙光，廊下悬一盏风灯；@image4=半截刀身，断口锈蚀，缠布刀柄磨得发亮，无可辨识文字\n【焦距】85mm，无光学畸变。\n节拍1（0.0s）：摄影机——静止。焦点角色 wei-shu 处于「压抑」的可观测状态。\n【微表演】说话时下颌几乎不动，唇形开合幅度极小；说完后立刻抿唇（BT-0005）；反应延迟约 0.4 秒后才出现，先有一拍完全的无反应\n【眼神】眼球有极细微的不规则跳视；眨眼不规律，一次较慢一次极快；瞳孔上有一枚清晰的实际光源反射点。\n【风格】光源仅来自：门缝炭火、风灯、宫灯、烛台、月光、雪反光。摄影机位于暗侧。色板 60/30/10：冷板岩灰、深黑阴影、炭火橙。大气：夜间轻微 haze，禁 god rays。调色参照：Kodak Vision3 500T、暗部压至接近纯黑，高光不过曝。\n【禁止】正面补光、反光板、柔光箱、LED灯带、霓虹、任何现代光源、3D渲染、游戏引擎画面、游戏CG过场、CGI质感、漂浮道具、重力失效、身份漂移、光学畸变、字幕、水印、文字、音乐、配乐、god rays、丁达尔光柱、镜头光晕、塑料感皮肤、过度磨皮、AI感。",
+      "char_count": 654,
+      "lens_mm": 85,
+      "generation_log": [
+        {
+          "attempt": 1,
+          "model": "seedance-2.0",
+          "verdict": "fail",
+          "failure_mode": "hand_chaos"
+        },
+        {
+          "attempt": 2,
+          "model": "seedance-2.0",
+          "verdict": "pass"
+        }
+      ],
+      "warning_density": {
+        "single": 0,
+        "triple": 0
+      },
+      "beat_refs": [
+        "BT-0005"
+      ]
+    },
+    {
+      "id": "sc1-p2",
+      "scene": 1,
+      "tag": "[CU · 沉默→说出 · 2/4]",
+      "duration_sec": 4.6,
+      "shot_count": 1,
+      "handles": {
+        "@image1": "shen-yan",
+        "@image2": "wei-shu",
+        "@image3": "xingfang-wailang",
+        "@image4": "duan-dao"
+      },
+      "text_zh": "【镜头】本条包含 1 个镜头，切换点严格发生在下列编号节拍处；除此之外不得有任何剪辑。\n【出场】@image1=四十余岁男性，瘦高，背极直，左眉斜贯一道旧疤，灰黑短发，深陷的眼窝，深色夜巡外袍；@image2=三十出头女性，肩窄，面色苍白，发髻紧贴头皮，深青素袍，目光不闪不避；@image3=青砖地，四根木廊柱，右侧一扇厚木门，门缝底部漏出炭火橙光，廊下悬一盏风灯；@image4=半截刀身，断口锈蚀，缠布刀柄磨得发亮，无可辨识文字\n【焦距】85mm，无光学畸变。\n节拍2（6.1s）：摄影机——说出的那一句上开始极缓横移。焦点角色 wei-shu 处于「释放」的可观测状态。\n【微表演】一次完整而缓慢的眨眼，睁眼后视线固定不再移动；下颌回收，颈部线条绷直（BT-0015）\n【眼神】眼球有极细微的不规则跳视；眨眼不规律，一次较慢一次极快；瞳孔上有一枚清晰的实际光源反射点。\n【风格】光源仅来自：门缝炭火、风灯、宫灯、烛台、月光、雪反光。摄影机位于暗侧。色板 60/30/10：冷板岩灰、深黑阴影、炭火橙。大气：夜间轻微 haze，禁 god rays。调色参照：Kodak Vision3 500T、暗部压至接近纯黑，高光不过曝。\n【禁止】正面补光、反光板、柔光箱、LED灯带、霓虹、任何现代光源、3D渲染、游戏引擎画面、游戏CG过场、CGI质感、漂浮道具、重力失效、身份漂移、光学畸变、字幕、水印、文字、音乐、配乐、god rays、丁达尔光柱、镜头光晕、塑料感皮肤、过度磨皮、AI感。",
+      "char_count": 646,
+      "lens_mm": 85,
+      "generation_log": [
+        {
+          "attempt": 1,
+          "model": "seedance-2.0",
+          "verdict": "fail",
+          "failure_mode": "hand_chaos"
+        },
+        {
+          "attempt": 2,
+          "model": "seedance-2.0",
+          "verdict": "pass"
+        }
+      ],
+      "warning_density": {
+        "single": 0,
+        "triple": 0
+      },
+      "beat_refs": [
+        "BT-0015"
+      ]
+    },
+    {
+      "id": "sc1-p3",
+      "scene": 1,
+      "tag": "[MS · 沉默→说出 · 3/4]",
+      "duration_sec": 4.6,
+      "shot_count": 1,
+      "handles": {
+        "@image1": "shen-yan",
+        "@image2": "wei-shu",
+        "@image3": "xingfang-wailang",
+        "@image4": "duan-dao"
+      },
+      "text_zh": "【镜头】本条包含 1 个镜头，切换点严格发生在下列编号节拍处；除此之外不得有任何剪辑。\n【出场】@image1=四十余岁男性，瘦高，背极直，左眉斜贯一道旧疤，灰黑短发，深陷的眼窝，深色夜巡外袍；@image2=三十出头女性，肩窄，面色苍白，发髻紧贴头皮，深青素袍，目光不闪不避；@image3=青砖地，四根木廊柱，右侧一扇厚木门，门缝底部漏出炭火橙光，廊下悬一盏风灯；@image4=半截刀身，断口锈蚀，缠布刀柄磨得发亮，无可辨识文字\n【焦距】50mm，无光学畸变。\n节拍3（12.2s）：摄影机——横移至露出听者。焦点角色 wei-shu 处于「释放」的可观测状态。\n【微表演】叩首后抬起的速度比落下慢；额前碎发落下不去拨（BT-0036）\n【风格】光源仅来自：门缝炭火、风灯、宫灯、烛台、月光、雪反光。摄影机位于暗侧。色板 60/30/10：冷板岩灰、深黑阴影、炭火橙。大气：夜间轻微 haze，禁 god rays。调色参照：Kodak Vision3 500T、暗部压至接近纯黑，高光不过曝。\n【禁止】正面补光、反光板、柔光箱、LED灯带、霓虹、任何现代光源、3D渲染、游戏引擎画面、游戏CG过场、CGI质感、漂浮道具、重力失效、身份漂移、光学畸变、字幕、水印、文字、音乐、配乐、god rays、丁达尔光柱、镜头光晕、塑料感皮肤、过度磨皮、AI感。",
+      "char_count": 579,
+      "lens_mm": 50,
+      "generation_log": [
+        {
+          "attempt": 1,
+          "model": "seedance-2.0",
+          "verdict": "fail",
+          "failure_mode": "hand_chaos"
+        },
+        {
+          "attempt": 2,
+          "model": "seedance-2.0",
+          "verdict": "pass"
+        }
+      ],
+      "warning_density": {
+        "single": 0,
+        "triple": 0
+      },
+      "beat_refs": [
+        "BT-0036"
+      ]
+    },
+    {
+      "id": "sc1-p4",
+      "scene": 1,
+      "tag": "[MS · 沉默→说出 · 4/4]",
+      "duration_sec": 4.6,
+      "shot_count": 1,
+      "handles": {
+        "@image1": "shen-yan",
+        "@image2": "wei-shu",
+        "@image3": "xingfang-wailang",
+        "@image4": "duan-dao"
+      },
+      "text_zh": "【镜头】本条包含 1 个镜头，切换点严格发生在下列编号节拍处；除此之外不得有任何剪辑。\n【出场】@image1=四十余岁男性，瘦高，背极直，左眉斜贯一道旧疤，灰黑短发，深陷的眼窝，深色夜巡外袍；@image2=三十出头女性，肩窄，面色苍白，发髻紧贴头皮，深青素袍，目光不闪不避；@image3=青砖地，四根木廊柱，右侧一扇厚木门，门缝底部漏出炭火橙光，廊下悬一盏风灯；@image4=半截刀身，断口锈蚀，缠布刀柄磨得发亮，无可辨识文字\n【焦距】50mm，无光学畸变。\n节拍3（12.2s）：摄影机——横移至露出听者。焦点角色 wei-shu 处于「释放」的可观测状态。\n【微表演】步幅比前一镜加大，落脚点连成一条直线；双臂摆幅减小（BT-0016）\n【风格】光源仅来自：门缝炭火、风灯、宫灯、烛台、月光、雪反光。摄影机位于暗侧。色板 60/30/10：冷板岩灰、深黑阴影、炭火橙。大气：夜间轻微 haze，禁 god rays。调色参照：Kodak Vision3 500T、暗部压至接近纯黑，高光不过曝。\n【禁止】正面补光、反光板、柔光箱、LED灯带、霓虹、任何现代光源、3D渲染、游戏引擎画面、游戏CG过场、CGI质感、漂浮道具、重力失效、身份漂移、光学畸变、字幕、水印、文字、音乐、配乐、god rays、丁达尔光柱、镜头光晕、塑料感皮肤、过度磨皮、AI感。",
+      "char_count": 582,
+      "lens_mm": 50,
+      "generation_log": [
+        {
+          "attempt": 1,
+          "model": "seedance-2.0",
+          "verdict": "fail",
+          "failure_mode": "hand_chaos"
+        },
+        {
+          "attempt": 2,
+          "model": "seedance-2.0",
+          "verdict": "fail",
+          "failure_mode": "identity_drift"
+        },
+        {
+          "attempt": 3,
+          "model": "seedance-2.0",
+          "verdict": "pass"
+        }
+      ],
+      "warning_density": {
+        "single": 0,
+        "triple": 0
+      },
+      "beat_refs": [
+        "BT-0016"
+      ]
+    },
+    {
+      "id": "sc2-p1",
+      "scene": 2,
+      "tag": "[MS · 控制→无助 · 1/2]",
+      "duration_sec": 7.3,
+      "shot_count": 1,
+      "handles": {
+        "@image1": "shen-yan",
+        "@image2": "wei-shu",
+        "@image3": "xingfang-wailang"
+      },
+      "text_zh": "【镜头】本条包含 1 个镜头，切换点严格发生在下列编号节拍处；除此之外不得有任何剪辑。\n【出场】@image1=四十余岁男性，瘦高，背极直，左眉斜贯一道旧疤，灰黑短发，深陷的眼窝，深色夜巡外袍；@image2=三十出头女性，肩窄，面色苍白，发髻紧贴头皮，深青素袍，目光不闪不避；@image3=青砖地，四根木廊柱，右侧一扇厚木门，门缝底部漏出炭火橙光，廊下悬一盏风灯\n【焦距】50mm，无光学畸变。\n节拍1（0.0s）：摄影机——平滑手持，呼吸极微。焦点角色 shen-yan 处于「平稳」的可观测状态。\n【微表演】说话时面部除下颌外无任何肌肉参与；眨眼频率规律得反常（BT-0029）\n【风格】光源仅来自：门缝炭火、风灯、宫灯、烛台、月光、雪反光。摄影机位于暗侧。色板 60/30/10：冷板岩灰、深黑阴影、炭火橙。大气：夜间轻微 haze，禁 god rays。调色参照：Kodak Vision3 500T、暗部压至接近纯黑，高光不过曝。\n【禁止】正面补光、反光板、柔光箱、LED灯带、霓虹、任何现代光源、3D渲染、游戏引擎画面、游戏CG过场、CGI质感、漂浮道具、重力失效、身份漂移、光学畸变、字幕、水印、文字、音乐、配乐、god rays、丁达尔光柱、镜头光晕、塑料感皮肤、过度磨皮、AI感。",
+      "char_count": 551,
+      "lens_mm": 50,
+      "generation_log": [
+        {
+          "attempt": 1,
+          "model": "seedance-2.0",
+          "verdict": "pass"
+        }
+      ],
+      "warning_density": {
+        "single": 0,
+        "triple": 0
+      },
+      "beat_refs": [
+        "BT-0029"
+      ]
+    },
+    {
+      "id": "sc2-p2",
+      "scene": 2,
+      "tag": "[CU · 控制→无助 · 2/2]",
+      "duration_sec": 7.3,
+      "shot_count": 2,
+      "handles": {
+        "@image1": "shen-yan",
+        "@image2": "wei-shu",
+        "@image3": "xingfang-wailang"
+      },
+      "text_zh": "【镜头】本条包含 2 个镜头，切换点严格发生在下列编号节拍处；除此之外不得有任何剪辑。\n【出场】@image1=四十余岁男性，瘦高，背极直，左眉斜贯一道旧疤，灰黑短发，深陷的眼窝，深色夜巡外袍；@image2=三十出头女性，肩窄，面色苍白，发髻紧贴头皮，深青素袍，目光不闪不避；@image3=青砖地，四根木廊柱，右侧一扇厚木门，门缝底部漏出炭火橙光，廊下悬一盏风灯\n【焦距】85mm，无光学畸变。\n节拍2（4.9s）：摄影机——不安抖动手持，不规则横向漂移。焦点角色 shen-yan 处于「失控」的可观测状态。\n节拍3（9.8s）：摄影机——漂移幅度加倍并加入垂直抖动。焦点角色 shen-yan 处于「失控」的可观测状态。\nHowever, when 节拍3 的触发事件发生时，shen-yan 的状态由「失控」切换为「失控」——只写肌肉动作，不写情绪。\n【微表演】转身两次，第二次比第一次快；手在衣袋外侧拍了三下才伸进去（BT-0028）；⚠️本拍是面具裂开的一拍：以上动作在此处首次不受控制；反应延迟约 0.4 秒后才出现，先有一拍完全的无反应\n【眼神】眼球有极细微的不规则跳视；眨眼不规律，一次较慢一次极快；瞳孔上有一枚清晰的实际光源反射点。\n【风格】光源仅来自：门缝炭火、风灯、宫灯、烛台、月光、雪反光。摄影机位于暗侧。色板 60/30/10：冷板岩灰、深黑阴影、炭火橙。大气：夜间轻微 haze，禁 god rays。调色参照：Kodak Vision3 500T、暗部压至接近纯黑，高光不过曝。\n【禁止】正面补光、反光板、柔光箱、LED灯带、霓虹、任何现代光源、3D渲染、游戏引擎画面、游戏CG过场、CGI质感、漂浮道具、重力失效、身份漂移、光学畸变、字幕、水印、文字、音乐、配乐、god rays、丁达尔光柱、镜头光晕、塑料感皮肤、过度磨皮、AI感。",
+      "char_count": 785,
+      "lens_mm": 85,
+      "generation_log": [
+        {
+          "attempt": 1,
+          "model": "seedance-2.0",
+          "verdict": "pass"
+        }
+      ],
+      "warning_density": {
+        "single": 1,
+        "triple": 0
+      },
+      "beat_refs": [
+        "BT-0028"
+      ]
+    },
+    {
+      "id": "sc3-p1",
+      "scene": 3,
+      "tag": "[CU · 囚禁→自由 · 1/1]",
+      "duration_sec": 12.2,
+      "shot_count": 3,
+      "handles": {
+        "@image1": "shen-yan",
+        "@image2": "xingfang-wailang",
+        "@image3": "duan-dao"
+      },
+      "text_zh": "【镜头】本条包含 3 个镜头，切换点严格发生在下列编号节拍处；除此之外不得有任何剪辑。\n【出场】@image1=四十余岁男性，瘦高，背极直，左眉斜贯一道旧疤，灰黑短发，深陷的眼窝，深色夜巡外袍；@image2=青砖地，四根木廊柱，右侧一扇厚木门，门缝底部漏出炭火橙光，廊下悬一盏风灯；@image3=半截刀身，断口锈蚀，缠布刀柄磨得发亮，无可辨识文字\n【焦距】85mm，无光学畸变。\n节拍1（0.0s）：摄影机——长焦静止。焦点角色 shen-yan 处于「收缩」的可观测状态。\n节拍2（4.1s）：摄影机——换中焦。焦点角色 shen-yan 处于「舒展」的可观测状态。\n节拍3（8.1s）：摄影机——换广角，露出此前未见的纵深。焦点角色 shen-yan 处于「舒展」的可观测状态。\nHowever, when 节拍2 的触发事件发生时，shen-yan 的状态由「收缩」切换为「舒展」——只写肌肉动作，不写情绪。\n【微表演】一次长而缓的呼气，肩随之下落；眼睑放松，眼球停止游移（BT-0034）；反应延迟约 0.4 秒后才出现，先有一拍完全的无反应\n【眼神】眼球有极细微的不规则跳视；眨眼不规律，一次较慢一次极快；瞳孔上有一枚清晰的实际光源反射点。\n【风格】光源仅来自：门缝炭火、风灯、宫灯、烛台、月光、雪反光。摄影机位于暗侧。色板 60/30/10：冷板岩灰、深黑阴影、炭火橙。大气：夜间轻微 haze，禁 god rays。调色参照：Kodak Vision3 500T、暗部压至接近纯黑，高光不过曝。\n【禁止】正面补光、反光板、柔光箱、LED灯带、霓虹、任何现代光源、3D渲染、游戏引擎画面、游戏CG过场、CGI质感、漂浮道具、重力失效、身份漂移、光学畸变、字幕、水印、文字、音乐、配乐、god rays、丁达尔光柱、镜头光晕、塑料感皮肤、过度磨皮、AI感。",
+      "char_count": 785,
+      "lens_mm": 85,
+      "generation_log": [
+        {
+          "attempt": 1,
+          "model": "seedance-2.0",
+          "verdict": "fail",
+          "failure_mode": "identity_drift"
+        },
+        {
+          "attempt": 2,
+          "model": "seedance-2.0",
+          "verdict": "fail",
+          "failure_mode": "spurious_cut"
+        },
+        {
+          "attempt": 3,
+          "model": "seedance-2.0",
+          "verdict": "pass"
+        }
+      ],
+      "warning_density": {
+        "single": 0,
+        "triple": 0
+      },
+      "beat_refs": [
+        "BT-0034"
+      ]
+    }
+  ],
+  "_state": {
+    "stage": "S7",
+    "gates": {
+      "G1": {
+        "pass": true,
+        "detail": [
+          {
+            "check": "controlling_idea_present",
+            "pass": true,
+            "detail": "他终于放下了那把刀，却发现自己已经不知道该怎么站着。"
+          },
+          {
+            "check": "every_scene_has_value",
+            "pass": true,
+            "detail": "全部已填"
+          },
+          {
+            "check": "value_in_taxonomy",
+            "pass": true,
+            "detail": "全部命中词库"
+          },
+          {
+            "check": "runtime_within_tolerance",
+            "pass": true,
+            "detail": "目标46s / 实际45.2s"
+          },
+          {
+            "check": "polarity_not_flat",
+            "pass": true,
+            "detail": "呼吸场0/3，同极性最长连续1场"
+          }
+        ]
+      },
+      "G2": {
+        "pass": true,
+        "detail": [
+          {
+            "check": "shootability_all_pass",
+            "pass": true,
+            "detail": "全部通过"
+          }
+        ]
+      },
+      "G3": {
+        "pass": true,
+        "detail": [
+          {
+            "check": "every_cast_has_core_lock",
+            "pass": true,
+            "detail": "全部已锁"
+          },
+          {
+            "check": "every_cast_has_voice",
+            "pass": true,
+            "detail": "全部已锁"
+          },
+          {
+            "check": "every_location_has_views",
+            "pass": true,
+            "detail": "主视图+反打齐备"
+          },
+          {
+            "check": "every_prop_has_spec",
+            "pass": true,
+            "detail": "全部有规格"
+          },
+          {
+            "check": "palette_locked",
+            "pass": true,
+            "detail": "色板：['冷板岩灰', '深黑阴影', '炭火橙']"
+          }
+        ]
+      },
+      "G4": {
+        "pass": true,
+        "detail": [
+          {
+            "check": "blocking_for_multichar",
+            "pass": true,
+            "detail": "多人场次走位齐备"
+          },
+          {
+            "check": "emotion_track_present",
+            "pass": true,
+            "detail": "全部已推导"
+          }
+        ]
+      },
+      "G5": {
+        "pass": true,
+        "detail": [
+          {
+            "check": "consistency_no_red",
+            "pass": true,
+            "detail": "无红项"
+          }
+        ]
+      }
+    },
+    "log": [
+      "08-07 08:26 run S0 gates=pass",
+      "08-07 08:26 run S1 gates=pass",
+      "08-07 08:26 run S2 gates=pass",
+      "08-07 08:26 run S3 gates=pass",
+      "08-07 08:26 run S4 gates=pass",
+      "08-07 08:26 run S5 gates=pass",
+      "08-07 08:27 run S6 gates=pass"
+    ]
+  },
+  "_checkout": {
+    "from_library": true,
+    "hit": [
+      "PV-0142",
+      "PV-0143",
+      "LV-0001",
+      "PP-0002"
+    ],
+    "miss": []
+  },
+  "_meta": {
+    "updated": "2026-08-07T08:27:57"
+  },
+  "director_policy": {
+    "insert_policy": "keep",
+    "camera_policy": "emotional",
+    "prompt_len_cap": 2500
+  }
+}

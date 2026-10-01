@@ -1,0 +1,85 @@
+{
+  "_readme": "把 practicals-only 从『通用真理』降级为『一种选择』。四套模板结构完全一致，可直接替换。新增美学时复制任意一套改内容即可。字段 forbid_block 为通用禁令，四套共享，不要删。",
+
+  "_shared_forbid_block": [
+    "3D渲染", "游戏引擎画面", "游戏CG过场", "CGI质感",
+    "漂浮道具", "重力失效", "身份漂移", "光学畸变",
+    "字幕", "水印", "文字", "音乐", "配乐",
+    "god rays", "丁达尔光柱", "镜头光晕",
+    "塑料感皮肤", "过度磨皮", "AI感"
+  ],
+
+  "templates": [
+    {
+      "id": "practicals-realism",
+      "name": "实景光写实（原版 Lubezki × Deakins）",
+      "适用": "现实题材、剧情片、纪实感",
+      "light_doctrine": {
+        "allowed_sources": ["窗光", "台灯", "蜡烛", "壁炉", "手电", "车灯", "月光"],
+        "forbidden": ["摄影棚补光", "反光板", "柔光箱", "LED灯带", "任何画面外不可解释的光源"],
+        "camera_side": "shadow_side",
+        "atmosphere": "极轻微空气感，禁 god rays"
+      },
+      "palette_60_30_10": ["自然肤色调", "环境中性色", "单一暖光点缀"],
+      "lens_doctrine": { "wide": 21, "dialogue": 35, "emotion": 50, "extreme": 85, "macro": 45 },
+      "grade_refs": ["Kodak Vision3 500T", "自然对比，不压暗部"],
+      "signature": "光源必须在画面内可见或可推断"
+    },
+
+    {
+      "id": "cold-court-noir",
+      "name": "冷调古装 · 刑狱权谋",
+      "适用": "古装正剧、权谋、探案",
+      "light_doctrine": {
+        "allowed_sources": ["门缝炭火", "风灯", "宫灯", "烛台", "月光", "雪反光"],
+        "forbidden": ["正面补光", "反光板", "柔光箱", "LED灯带", "霓虹", "任何现代光源"],
+        "camera_side": "shadow_side",
+        "atmosphere": "夜间轻微 haze，禁 god rays"
+      },
+      "palette_60_30_10": ["冷板岩灰", "深黑阴影", "炭火橙"],
+      "lens_doctrine": { "wide": 35, "dialogue": 50, "emotion": 85, "extreme": 100, "macro": 45 },
+      "grade_refs": ["Kodak Vision3 500T", "暗部压至接近纯黑，高光不过曝"],
+      "signature": "人物大面积在暗部，只有轮廓光与眼神光可辨"
+    },
+
+    {
+      "id": "hk-neon",
+      "name": "港式霓虹 · 都市夜",
+      "适用": "都市犯罪、黑色电影、当代情感",
+      "light_doctrine": {
+        "allowed_sources": ["招牌灯", "街灯", "车头灯", "店铺玻璃反射", "雨面反光", "手机屏幕"],
+        "forbidden": ["摄影棚补光", "反光板", "柔光箱", "日光补光"],
+        "camera_side": "霓虹的侧逆位",
+        "atmosphere": "湿气雾 + 允许霓虹光晕（此美学唯一放行的光晕），仍禁 god rays"
+      },
+      "palette_60_30_10": ["湿沥青黑", "霓虹品红", "冷青"],
+      "lens_doctrine": { "wide": 28, "dialogue": 40, "emotion": 85, "extreme": 100, "macro": 50 },
+      "grade_refs": ["Fuji Eterna 500T", "青品双色分离，肤色偏冷"],
+      "signature": "永远有第二个颜色的光从相反方向打过来"
+    },
+
+    {
+      "id": "clean-japanese",
+      "name": "日系清新 · 生活流",
+      "适用": "青春、家庭、治愈、轻喜剧",
+      "light_doctrine": {
+        "allowed_sources": ["漫射日光", "窗纱透光", "阴天天光", "室内白墙反弹"],
+        "forbidden": ["硬光", "强对比侧光", "霓虹", "夜景重色"],
+        "camera_side": "光源同侧或正面",
+        "atmosphere": "通透，无雾，禁 god rays"
+      },
+      "palette_60_30_10": ["米白", "浅木色", "单一低饱和点缀色"],
+      "lens_doctrine": { "wide": 35, "dialogue": 50, "emotion": 85, "extreme": 105, "macro": 60 },
+      "grade_refs": ["Fuji Pro 400H", "高调，暗部抬起，低对比"],
+      "signature": "阴影极淡，几乎没有纯黑"
+    }
+  ],
+
+  "_usage": {
+    "step1": "在 project.json 的 aesthetic_id 里指定一套",
+    "step2": "所有提示词的 STYLE_BLOCK 从此模板生成，不手写",
+    "step3": "forbid_block = _shared_forbid_block + 本模板 light_doctrine.forbidden",
+    "step4": "镜头选择必须落在 lens_doctrine 的五个值之一，不允许自由填数字",
+    "警告": "不要在同一个项目里混用两套美学模板。如果确实需要（如闪回段落），把它当作两个 aesthetic_id 并在制片元数据里逐场标注。"
+  }
+}

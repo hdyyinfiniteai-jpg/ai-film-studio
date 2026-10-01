@@ -1,0 +1,2 @@
+{"id": "PP-0001", "name": "城门册子", "src_id": "chengmen-cezi", "handle_desc_zh": "手掌大的靛蓝布面册子，边角磨白，无可辨识文字", "used_in": ["xingming", "xingming2"], "first_seen": "2026-08-07", "last_seen": "2026-08-07", "asset_specs": [{"model": "nano-banana-pro", "aspect": "21:9", "views": 1, "prompt": "[LIRA 80–150词待填] 手掌大的靛蓝布面册子，边角磨白，无可辨识文字"}]}
+{"id": "PP-0002", "name": "断刀", "src_id": "duan-dao", "handle_desc_zh": "半截刀身，断口锈蚀，缠布刀柄磨得发亮，无可辨识文字", "used_in": ["xingming2", "xingming3"], "first_seen": "2026-08-07", "last_seen": "2026-08-07", "asset_specs": []}

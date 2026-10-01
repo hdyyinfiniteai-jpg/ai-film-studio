@@ -1,0 +1,103 @@
+{
+  "_note": "十三类决策卡。二元问题优于开放问题——SCREENWRITER 的纪律，此处升为全局。",
+  "cards": [
+    {
+      "id":"STRAT_TONE","level":"S","stage":"S0","scope":"project",
+      "q":"这部片的摄影机，默认站在哪一边？",
+      "opts":[
+        {"k":"A","label":"跟随焦点角色的情绪","why":"映射表默认。摄影机是情绪替身，戏怎么走镜头怎么动","effect":{"structure":0,"prompts":"全片"},"risk":[]},
+        {"k":"B","label":"始终冷眼旁观","why":"全片静止或极缓，情绪由表演承担而非运镜","effect":{"structure":1,"prompts":"全片"},"risk":["static_long_cu"],"note":"抽卡成本最低，但要求表演层极强"}],
+      "presets":{"A":{"camera_policy":"emotional"},"B":{"camera_policy":"observational"}}
+    },
+    {
+      "id":"STRAT_INSERT","level":"S","stage":"S0","scope":"project",
+      "q":"观众该领先角色，还是与角色同步？",
+      "opts":[
+        {"k":"A","label":"领先——多用插入镜头","why":"悬念型。观众看到角色看不到的东西","effect":{"structure":1,"cost_mult":1.25},"risk":["hand_closeup"]},
+        {"k":"B","label":"同步——少用插入","why":"悬疑型。观众和角色一起被蒙在鼓里","effect":{"structure":1,"cost_mult":0.85},"risk":[]}],
+      "presets":{"A":{"insert_policy":"keep"},"B":{"insert_policy":"drop"}}
+    },
+    {
+      "id":"STRAT_PROMPT_LEN","level":"S","stage":"S0","scope":"project",
+      "q":"提示词策略：短而多抽卡，还是长而高精度？",
+      "opts":[
+        {"k":"A","label":"短（≤1200字）","why":"单条快，但控制项少，抽卡次数上升","effect":{"cost_mult":1.30},"risk":[]},
+        {"k":"B","label":"长（≤2500字）","why":"控制项全，单次命中率高；但接近上限时后段易被忽略","effect":{"cost_mult":0.80},"risk":[],"note":"超2500触发 FM prompt_ignored"}],
+      "presets":{"A":{"prompt_len_cap":1200},"B":{"prompt_len_cap":2500}}
+    },
+
+    {
+      "id":"STORY_VALUE_OWNER","level":"A","stage":"S1","scope":"scene",
+      "q":"「{value_in}→{value_out}」——是谁的价值在动？",
+      "dynamic":"cast_present",
+      "note":"这一答决定摄影机跟谁。答错，整场戏的运镜都错。"
+    },
+    {
+      "id":"STORY_BREATHER","level":"A","stage":"S1","scope":"scene","when":"polarity_flat",
+      "q":"第{no}场没有价值运动——保留还是删？",
+      "opts":[
+        {"k":"A","label":"保留为呼吸场","why":"它承担信息投放/setup埋线/节奏调剂","effect":{"structure":0},"risk":[]},
+        {"k":"B","label":"删掉","why":"把它的信息塞进相邻场次的对白","effect":{"structure":2,"prompts":"-N"},"risk":[],"note":"麦基：没有价值运动的戏，是可以被剪掉的戏"}]
+    },
+    {
+      "id":"STORY_ENDING_HOLD","level":"A","stage":"S1","scope":"scene","when":"is_last",
+      "q":"最后一场——留白还是说明？",
+      "opts":[
+        {"k":"A","label":"留白","why":"最后一拍停在动作上，不给解释","effect":{"structure":1},"risk":[]},
+        {"k":"B","label":"说明","why":"用一句台词或一个镜头把控制性理念点破","effect":{"structure":1},"risk":[]}]
+    },
+
+    {
+      "id":"PERF_VARIANT_1","level":"A","stage":"S2","scope":"scene","when":"has_turn",
+      "q":"第{no}场的转折反应，是向内还是向外？",
+      "opts":[
+        {"k":"A","label":"向内——收缩、屏息、静止","why":"压抑型。适合面具型角色","effect":{},"risk":[]},
+        {"k":"B","label":"向外——扩张、呼吸变粗、动作外放","why":"释放型。适合面具已裂的时刻","effect":{},"risk":["reaction_multi"]}],
+      "note":"拆成两次二元问，比『惊讶是哪一种』的四选一决策质量高得多"
+    },
+    {
+      "id":"PERF_VARIANT_2","level":"B","stage":"S2","scope":"scene","when":"has_turn",
+      "depends":"PERF_VARIANT_1",
+      "q":"这个反应是延迟的还是即时的？",
+      "opts":[
+        {"k":"A","label":"延迟——先无反应，隔一拍才动","why":"更像真人。角色先要处理信息","effect":{},"risk":[]},
+        {"k":"B","label":"即时——触发即反应","why":"节奏快，适合喜剧与动作","effect":{},"risk":[]}]
+    },
+    {
+      "id":"PERF_MASK_CRACK","level":"A","stage":"S2","scope":"scene","when":"has_turn",
+      "q":"面具在第几拍裂开？",
+      "dynamic":"beats",
+      "note":"SCREENWRITER 的『两个真相』+ ACTING 的面具/裂缝。这是全片最高价值的分叉，视觉层从未继承过它"
+    },
+
+    {
+      "id":"CAM_TURN_WHERE","level":"A","stage":"S4","scope":"scene","when":"has_turn",
+      "q":"情绪转折发生在镜头内，还是靠剪辑完成？",
+      "opts":[
+        {"k":"A","label":"镜头内——一镜到底看着他变","why":"表演压力大，但更有力","effect":{"prompts":-1},"risk":["multi_shot_dialogue"],"note":"AI 表演在长镜内转变的成功率显著低于切镜"},
+        {"k":"B","label":"靠剪辑——切一刀，切完人已经变了","why":"抽卡便宜，但观众看不到转变过程","effect":{"prompts":1},"risk":[]}]
+    },
+    {
+      "id":"CAM_OVERRIDE","level":"B","stage":"S4","scope":"scene",
+      "q":"映射表给的是「{camera_default}」——照办还是反着来？",
+      "opts":[
+        {"k":"A","label":"照办","why":"运镜由戏决定，安全","effect":{},"risk":[]},
+        {"k":"B","label":"反着来","why":"绝望用静止广角、暴力用平稳长镜——最强的镜头常来自反用","effect":{"structure":1,"irreversible":true},"risk":[],"note":"选B必须写一句理由，进决策日志"}]
+    },
+    {
+      "id":"SHOT_SPLIT","level":"B","stage":"S4","scope":"scene",
+      "q":"第{no}场算出 {n_prompts} 条——拆还是合？",
+      "opts":[
+        {"k":"A","label":"照算法拆","why":"定量密度算法的结果","effect":{},"risk":[]},
+        {"k":"B","label":"再合一条","why":"情绪连续，切开会断气","effect":{"prompts":-1,"cost_mult":0.8},"risk":["multi_shot_dialogue"]},
+        {"k":"C","label":"再拆一条","why":"这段信息量太大，一条装不下","effect":{"prompts":1,"cost_mult":1.2},"risk":[]}]
+    },
+    {
+      "id":"SHOT_INSERT","level":"B","stage":"S4","scope":"scene","when":"has_insert",
+      "q":"第{no}场的插入镜头「{insert}」——留还是删？",
+      "opts":[
+        {"k":"A","label":"留","why":"观众领先角色一步；且它可能是 setup 的 payoff","effect":{"prompts":1,"cost_mult":1.4},"risk":["hand_closeup"]},
+        {"k":"B","label":"删","why":"省一条，抽卡风险降低","effect":{"prompts":-1},"risk":[],"note":"若它是某场 setup 的唯一 payoff，删了等于那次埋线白铺"}]
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "_note": "决策疲劳协议。一部90分钟片有200+分叉——全问必然崩。三级分流。",
+  "fatigue": {
+    "must_answer_per_10min": 6,
+    "impact_threshold_must": 1.0,
+    "impact_threshold_delegate": 0.35
+  },
+  "impact_weights": {
+    "structure": 2.0,
+    "cost_usd_per_point": 8.0,
+    "prompts_affected_per_point": 4.0,
+    "irreversible_bonus": 1.5
+  },
+  "levels": {
+    "S": "策略卡 · 全片答一次，答完自动预填大量场次卡",
+    "A": "必答卡 · 两选项后果差异大，机器不得代答",
+    "B": "托管卡 · 按策略卡默认预填，可随时翻牌改",
+    "C": "自动卡 · 后果差异低于阈值，不进入界面，只记日志"
+  }
+}

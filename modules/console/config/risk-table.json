@@ -1,0 +1,61 @@
+{
+  "_note": "抽卡风险系数。n = 样本数。n<15 时 confidence=拍脑袋，界面必须标注——否则导演会信任一个猜出来的数字。",
+  "unit_cost_usd": 1.2,
+  "baseline_attempts": 3.0,
+  "risks": {
+    "hand_closeup": {
+      "label": "手部特写",
+      "mult": 1.93,
+      "n": 21,
+      "fm": "hand_chaos"
+    },
+    "three_plus_named": {
+      "label": "3人以上同框",
+      "mult": 1.3,
+      "n": 0,
+      "fm": "handle_contamination"
+    },
+    "fast_action": {
+      "label": "快速动作",
+      "mult": 1.35,
+      "n": 0,
+      "fm": "camera_wild"
+    },
+    "multi_shot_dialogue": {
+      "label": "多镜头带对白",
+      "mult": 1.25,
+      "n": 1,
+      "fm": "spurious_cut"
+    },
+    "extreme_wide_named": {
+      "label": "大远景带有名角色",
+      "mult": 1.2,
+      "n": 0,
+      "fm": "scale_mismatch"
+    },
+    "text_in_frame": {
+      "label": "画面内文字",
+      "mult": 1.5,
+      "n": 0,
+      "fm": "text_in_frame"
+    },
+    "camera_move_complex": {
+      "label": "复杂运镜+前景",
+      "mult": 1.3,
+      "n": 0,
+      "fm": "camera_wild"
+    },
+    "static_long_cu": {
+      "label": "静止长焦特写",
+      "mult": 1.05,
+      "n": 0,
+      "fm": null
+    },
+    "reaction_multi": {
+      "label": "多人同时反应",
+      "mult": 1.22,
+      "n": 0,
+      "fm": "perf_flat"
+    }
+  }
+}
